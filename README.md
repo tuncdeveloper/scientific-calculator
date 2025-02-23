@@ -1,0 +1,2 @@
+# scientific-calculator
+ A fully-featured scientific calculator that provides a wide range of mathematical functions including basic operations (addition, subtraction, multiplication, division), exponentiation, trigonometric functions (sine, cosine, tangent), logarithms, natural logarithms (ln), percentage calculations, and factorials. This calculator is designed to handle both everyday calculations and complex mathematical problems, making it ideal for students, engineers, and anyone in need of advanced calculation tools.
