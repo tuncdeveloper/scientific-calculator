@@ -1,12 +1,7 @@
 package org.example.gui;
 
-
+import com.formdev.flatlaf.FlatLightLaf;
 import org.example.CalculatorService;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,6 +17,13 @@ public class SingleInputPanel extends JPanel {
         this.textFieldResult = textFieldResult;
         this.calculatorService = calculatorService;
 
+        // Set the look and feel to FlatLaf for a modern UI
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.white);
 
@@ -35,9 +37,10 @@ public class SingleInputPanel extends JPanel {
         textFieldSingle = new JTextField();
         textFieldSingle.setPreferredSize(new Dimension(100, 30));
         textFieldSingle.setFont(new Font("Arial", Font.BOLD, 16));
+        textFieldSingle.setBorder(BorderFactory.createLineBorder(new Color(0, 123, 255), 2)); // Adding border for input field
 
-        // Modern combo box design
-        JComboBox<String> singleOperationBox = new JComboBox<>(new String[]{
+        // Modern combo box design with FlatLaf styling
+        JComboBox<String> singleOperationBox = new JComboBox<>(new String[] {
                 "√", "log", "ln", "sin", "cos", "tan", "cot", "sec", "csc", "!"
         });
         singleOperationBox.setFont(new Font("Arial", Font.BOLD, 16));
@@ -49,6 +52,7 @@ public class SingleInputPanel extends JPanel {
         calculateSingleButton.setBackground(new Color(0, 123, 255));
         calculateSingleButton.setForeground(Color.white);
         calculateSingleButton.setFont(new Font("Arial", Font.BOLD, 14));
+        calculateSingleButton.setBorder(BorderFactory.createLineBorder(new Color(0, 123, 255), 2)); // Adding border for the button
 
         calculateSingleButton.addActionListener(new ActionListener() {
             @Override
@@ -95,4 +99,3 @@ public class SingleInputPanel extends JPanel {
         }
     }
 }
-

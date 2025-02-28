@@ -27,17 +27,18 @@ public class CalculatorForm {
         calculatorService = new CalculatorService();
         frame = new JFrame("Modern Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        frame.setSize(500, 275);
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);  // Center the window
 
-        // Result TextField with rounded corners and shadow
+        // Result TextField with FlatLaf styling
         textFieldResult = new JTextField();
         textFieldResult.setEditable(false);
         textFieldResult.setFont(new Font("Arial", Font.BOLD, 24));
         textFieldResult.setHorizontalAlignment(SwingConstants.RIGHT);
         textFieldResult.setPreferredSize(new Dimension(600, 50));
-        textFieldResult.setBackground(new Color(230, 230, 230));
+        textFieldResult.putClientProperty("JComponent.roundRect", true);  // Rounded corners
+        textFieldResult.putClientProperty("JComponent.arc", 20);  // Arc size for rounded corners
         frame.add(textFieldResult, BorderLayout.NORTH);
 
         // Main panel with left and right sections
@@ -69,16 +70,26 @@ public class CalculatorForm {
         JLabel labelA = new JLabel("Input A:");
         textFieldA = new JTextField();
         textFieldA.setPreferredSize(new Dimension(100, 30));  // Smaller input size
+        textFieldA.putClientProperty("JComponent.roundRect", true);  // Rounded corners
+        textFieldA.putClientProperty("JComponent.arc", 10);  // Arc size for rounded corners
+
         JLabel labelB = new JLabel("Input B:");
         textFieldB = new JTextField();
         textFieldB.setPreferredSize(new Dimension(100, 30));  // Smaller input size
+        textFieldB.putClientProperty("JComponent.roundRect", true);  // Rounded corners
+        textFieldB.putClientProperty("JComponent.arc", 10);  // Arc size for rounded corners
 
         JComboBox<String> operationBox = new JComboBox<>(new String[] {
                 "+", "-", "*", "/", "^", "%" // Add operations
         });
+        operationBox.setFont(new Font("Arial", Font.BOLD, 16));  // Larger font size
+        operationBox.putClientProperty("JComponent.roundRect", true);  // Rounded corners
+        operationBox.putClientProperty("JComponent.arc", 10);  // Arc size for rounded corners
+
         JButton calculateButton = new JButton("Calculate");
-        calculateButton.setBackground(new Color(0, 123, 255));
-        calculateButton.setForeground(Color.white);
+        calculateButton.putClientProperty("JButton.buttonType", "roundRect");  // Rounded button
+        calculateButton.setBackground(new Color(42, 178, 42));
+        calculateButton.setForeground(Color.BLACK);
 
         calculateButton.addActionListener(new ActionListener() {
             @Override
@@ -132,13 +143,20 @@ public class CalculatorForm {
         JLabel labelSingle = new JLabel("Input A:");
         textFieldSingle = new JTextField();
         textFieldSingle.setPreferredSize(new Dimension(100, 30));  // Smaller input size
+        textFieldSingle.putClientProperty("JComponent.roundRect", true);  // Rounded corners
+        textFieldSingle.putClientProperty("JComponent.arc", 10);  // Arc size for rounded corners
 
         JComboBox<String> singleOperationBox = new JComboBox<>(new String[] {
                 "√", "log", "ln", "sin", "cos", "tan", "cot", "sec", "csc", "!"
         });
+        singleOperationBox.setFont(new Font("Arial", Font.BOLD, 16));  // Larger font size
+        singleOperationBox.putClientProperty("JComponent.roundRect", true);  // Rounded corners
+        singleOperationBox.putClientProperty("JComponent.arc", 10);  // Arc size for rounded corners
+
         JButton calculateSingleButton = new JButton("Calculate");
-        calculateSingleButton.setBackground(new Color(0, 123, 255));
-        calculateSingleButton.setForeground(Color.white);
+        calculateSingleButton.putClientProperty("JButton.buttonType", "roundRect");  // Rounded button
+        calculateSingleButton.setBackground(new Color(42, 178, 42));
+        calculateSingleButton.setForeground(Color.BLACK);
 
         calculateSingleButton.addActionListener(new ActionListener() {
             @Override
